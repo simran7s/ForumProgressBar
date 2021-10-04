@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:ital,wght@0,100;0,400;0,700;1,300&display=swap');
+
+:root {
+    --line-colour: #3498db;
+    --line-empty-colour: #e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f6f7fb;
+    font-family: 'Muli', sans-serif;
+    margin: 0%;
+    /* For centering everything */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* Hide Scrollbars */
+    overflow: hidden;
+}
+
+
+.container {
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+}
+
+.progress-container::before {
+    content: "";
+    background-color: var(--line-empty-colour);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    /* transform: translateY(50%); */
+    z-index: -1;
+}
+
+.progress {
+    background-color: var(--line-colour);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    /* So progress made is directly in the middle */
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: .4s ease;
+}
+
+.circle {
+    background-color: #fff;
+    color: #999;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    /* For centering numbers in middle of circles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--line-empty-colour) 3px solid;
+    transition: background-colour 0.4s ease-in;
+}
+
+.circle.active {
+    border-color: var(--line-colour);
+}
+
+.btn {
+    background-color: var(--line-colour);
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 6px;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+.btn:active {
+    transform: scale(0.98)
+}
+
+.btn:focus {
+    outline: none
+}
+
+.btn:disabled {
+    background-color: var(--line-empty-colour);
+    cursor: not-allowed;
+}
